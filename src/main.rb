@@ -4,7 +4,7 @@ require_relative "models/fragment"
 
 # Root
 get "/" do
-  "Hello"
+  erb :home
 end
 
 # erro 404!

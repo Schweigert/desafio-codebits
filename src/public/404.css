@@ -8,7 +8,7 @@ body {
 
   /* This centers our sketch horizontally. */
   justify-content: center;
-
+  transform: translate(0,-50px);
   /* This centers our sketch vertically. */
   align-items: center;
 }

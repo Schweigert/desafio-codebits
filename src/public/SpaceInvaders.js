@@ -31,14 +31,14 @@ function setup() {
 
 function draw() {
 
-  background(51);
+  clear();
+  background('rgba(51,51,51,0.1)');
 
   handleAliens();
 	handleLevel();
 	handleShuttle();
 	handleKeys();
 
-  drawScore();
 }
 
 /**
@@ -177,21 +177,18 @@ function initializeFleet(rows, cols, size) {
 /**
  * draws the score
  */
-function drawScore() {
 
-	textSize(35);
-  fill(255);
-  noStroke();
-  text(score, width / 2, 40);
-}
 
 /**
  * ends the loop, draws end game message
  */
-function endGame() {
 
+
+function endGame() {
+  clear();
+  textFont("Open Sans");
   noLoop();
-  textSize(100);
+  textSize(45);
   fill(255);
   noStroke();
 
