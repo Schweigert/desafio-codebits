@@ -10,5 +10,5 @@ end
 # erro 404!
 not_found do
   status 404
-  "oops..."
+  erb :e404
 end
