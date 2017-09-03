@@ -1,3 +1,5 @@
+
+[![Code Climate](https://codeclimate.com/github/Schweigert/desafio-codebits.png)](https://codeclimate.com/github/Schweigert/desafio-codebits)
 # Desafio Codebits
 
 O objetivo deste desafio de código é criar um clone simples do [GitHub Gist](https://gist.github.com/).
