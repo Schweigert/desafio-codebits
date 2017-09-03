@@ -15,7 +15,6 @@ class Fragment < Db
     @name = name
     @source = source
     @id = id
-    @lang = :notRecognized
     detect
   end
 
@@ -41,7 +40,7 @@ class Fragment < Db
     # Necessita de sincronização para evitar problemas de concorrência
     @@fragMutex.synchronize {
       # Cria um novo objeto no banco
-      r = @@connection.query "
+      @@connection.query "
         INSERT INTO Fragments (name, source) VALUES ('#{Zip.zip @name}','#{Zip.zip @source}')
       "
       # Obtem o último ID
@@ -72,21 +71,12 @@ class Fragment < Db
   # Detecta a linguagem pelo nome do fragmento
   private
   def detect
+    # Detecta a extensão do arquivo
     extension = @name.split(".").last
-    case extension
-    when "rb"
-      @lang = :ruby
-    when "py"
-      @lang = :python
-    when "c"
-      @lang = :c
-    when "cpp"
-      @lang = :cpp
-    when "hs"
-      @lang = :haskell
-    when "go"
-      @lang = :go
-    end
+
+    # Seleciona a linguagem
+    @lang = Config.fragLangs[extension]
+    @lang = :notRecognized if @lang == nil
   end
 
 end
