@@ -1,7 +1,7 @@
 require 'test/unit'
 
-require_relative "zip"
-require_relative "fragment"
+require_relative "config"
+require_relative "models/fragment"
 
 
 class ZipTest < Test::Unit::TestCase
@@ -68,7 +68,6 @@ class FragmentTest < Test::Unit::TestCase
 
     f = Fragment.new name, source
     f.create
-    puts f.lang
     assert f.lang==:python
   end
 

@@ -1,5 +1,5 @@
-require_relative "db"
-require_relative "zip"
+require_relative "db/db"
+require_relative "utils/zip"
 
 # A classe Fragment representa um fragmento de código armazenado no banco.
 class Fragment < Db
