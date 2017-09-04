@@ -22,9 +22,9 @@ get "/editor/:id" do
   erb :editor, :locals => {:id => params["id"]}
 end
 
-# Post Fragment
-post "/edit/:id" do
-  erb :edit, :locals => {:id => params["id"], :name => params["name"], :source => params["source"]}
+# Purge Fragment
+get "/purge/:id" do
+  erb :purge, :locals => {:id => params["id"]}
 end
 
 # erro 404!
