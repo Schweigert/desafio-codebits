@@ -12,6 +12,11 @@ post "/create/" do
   erb :create, :locals => {:name => params["name"], :source => params["source"]}
 end
 
+# View Fragment
+get "/view/:id" do
+  erb :view, :locals => {:id => params["id"]}
+end
+
 # erro 404!
 not_found do
   status 404

@@ -1,0 +1,21 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>CodeBits</title>
+  </head>
+
+  <body>
+
+    <%f = Fragment.get id%>
+    <% if f != nil %>
+      <% for i in f.source.split("\n") %>
+        <p><%= i %></p>
+      <% end %>
+    <% else %>
+      <%= erb :e404 %>
+    <% end %>
+
+  </body>
+
+</html>
