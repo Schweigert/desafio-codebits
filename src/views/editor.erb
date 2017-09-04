@@ -1,0 +1,39 @@
+<head>
+
+  <%= f = Fragment.get id %>
+  <% if f != nil %>
+    <title> <%= f.name %> </title>
+
+
+
+</head>
+
+<body>
+
+  <p> <%= f.lang %>
+
+  <div class="content contact">
+
+    <form action="/edit/" method="post">
+      <label>Name</label><br>
+      <%='<input type="text" value="' + f.name.to_s() + '" class="form" name="name"><br>'%>
+
+      <label>Source</label><br>
+      <textarea id="artical_message" rows="10" cols="30" class="form" name="source"><%=f.source.encode%> </textarea>
+      <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+
+
+
+
+<% else %>
+  <title> <%= "Oppss" %> </title>
+
+</head>
+
+<%= erb :e404 %>
+
+<% end %>

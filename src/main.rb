@@ -17,6 +17,16 @@ get "/view/:id" do
   erb :view, :locals => {:id => params["id"]}
 end
 
+# Edit Fragment
+get "/editor/:id" do
+  erb :editor, :locals => {:id => params["id"]}
+end
+
+# Post Fragment
+post "/edit/:id" do
+  erb :edit, :locals => {:id => params["id"], :name => params["name"], :source => params["source"]}
+end
+
 # erro 404!
 not_found do
   status 404

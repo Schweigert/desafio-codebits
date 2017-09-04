@@ -1,0 +1,27 @@
+<head>
+
+  <%f = Fragment.get id%>
+
+  <% if f != nil and source != nil and name != nil %>
+  <title><%=f.name%></title>
+
+  <% f.source = source %>
+  <% f.name = f.name %>
+  <% f.update %>
+
+</head>
+
+
+  <%= erb :view, :locals => {:id => id} %>
+
+
+
+
+
+
+
+  <% else %>
+
+  <title>Opss</title>
+
+</head>
