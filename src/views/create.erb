@@ -1,0 +1,24 @@
+<head>
+  <title> Creating your fragment... </title>
+</head>
+
+<body>
+  Name:<br>
+  <%= name %><br>
+  Source:<br>
+  <%= source %><br>
+
+  <br>
+  <br>
+  <br>
+
+  <% for i in source.split("\n") %>
+    <%= i %><br>
+  <% end %>
+
+  <% f = Fragment.new name, source %>
+  <% f.create %>
+
+  <%= "<a href=\"http://localhost:4567/view/#{f.id}\">link text</a>" %>
+
+</body>

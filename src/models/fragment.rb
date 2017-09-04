@@ -1,5 +1,5 @@
-require_relative "db"
-require_relative "zip"
+require_relative "db/db"
+require_relative "utils/zip"
 
 # A classe Fragment representa um fragmento de código armazenado no banco.
 class Fragment < Db
@@ -21,17 +21,33 @@ class Fragment < Db
 
   # Obtem um fragmento pelo id do objeto
   def self.get id
-    @@fragMutex.synchronize {
-       r = @@connection.query "
-        SELECT * FROM Fragments WHERE id = #{id.to_i}
-        LIMIT 1
-       "
-       f = nil
-       r.each do |row|
-         f = Fragment.new(Zip.dezip(row['name']), Zip.dezip(row['source']), row['id'])
-       end
-       return f
-    }
+    r = @@connection.query "
+      SELECT * FROM Fragments WHERE id = #{id.to_i}
+      LIMIT 1
+    "
+
+    f = nil
+    r.each do |row|
+      f = Fragment.new(Zip.dezip(row['name']), Zip.dezip(row['source']), row['id'])
+    end
+    return f
+  end
+
+  # Obtem 10 fragmentos aleatórios
+  def self.getRandom n
+    r = @@connection.query "
+      SELECT * FROM Fragments
+      ORDER BY RAND()
+      LIMIT #{n.to_i}
+    "
+
+    f = []
+
+    r.each do |row|
+      f << Fragment.new(Zip.dezip(row['name']), Zip.dezip(row['source']), row['id'])
+    end
+
+    return f
   end
 
 

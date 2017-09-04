@@ -1,7 +1,5 @@
 require 'mysql2'
 
-require_relative "config"
-
 # Esta classe representa um objeto com conexão ao banco de dados.
 # Todo objeto que requer uma conexão ao banco deve herdar essa classe.
 class Db
