@@ -9,7 +9,6 @@ end
 
 # Create Fragment
 post "/create/" do
-  puts params.to_s
   erb :create, :locals => {:name => params["name"], :source => params["source"]}
 end
 
