@@ -1,20 +1,33 @@
 <head>
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <!-- Load CSS -->
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <!-- Load Icon Font -->
+  <link href="../css/webfont.css" rel="stylesheet" type="text/css" />
+  <!-- Load jQuery library -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- Load jCarousel js -->
+  <script type="text/javascript" src="../js/jquery.jcarousel.js"></script>
+  <!-- Load MixItUup js -->
+  <script type="text/javascript" src="../js/jquery.mixitup.js"></script>
+  <!-- Load js -->
+  <script type="text/javascript" src="../js/custom.js"></script>
 
-  <%= f = Fragment.get id %>
+  <% f = Fragment.get id %>
   <% if f != nil %>
     <title> <%= f.name %> </title>
-
-
 
 </head>
 
 <body>
 
-  <p> <%= f.lang %>
+
 
   <div class="content contact">
 
-    <form action="/edit/" method="post">
+    <%="<form action=\"/edit/#{id}\" method=\"post\">"%>
       <label>Name</label><br>
       <%='<input type="text" value="' + f.name.to_s() + '" class="form" name="name"><br>'%>
 
@@ -23,7 +36,7 @@
       <input type="submit" value="Submit">
     </form>
 
-
+    <p>Lang: <%= f.lang %> </p>
 </body>
 
 
