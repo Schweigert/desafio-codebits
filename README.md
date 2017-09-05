@@ -27,12 +27,25 @@ Adicione instruções de instalação, execução dos testes e execução da apl
 
 ## Dependências
 
-[TODO]
+```bash
+sudo apt-get install ruby2.3
+sudo apt-get install ruby-mysql
+
+sudo gem install sinatra
+sudo gem install mysql2
+
+```
 
 ## Testes
 
-[TODO]
+```bash
+cd src/
+ruby tests.rb
+```
 
 ## Executando a Aplicação
 
-[TODO]
+```bash
+cd src/
+ruby main.rb
+```
