@@ -24,11 +24,8 @@
 		<a href="#" class="logo"></a>
 		<ul class="mainmenu">
 			<li class="active"><a href="#home">Home</a></li>
-			<li><a href="#services">Services</a></li>
-			<li><a href="#about">About</a></li>
-			<li><a href="#portfolio">Portfolio</a></li>
-			<li><a href="#blog">Blog</a></li>
 			<li><a href="#contact">Contact</a></li>
+			<li><a href="#random">Randons</a></li>
 		</ul>
 	</div>
 	<!-- End Menu -->
@@ -77,10 +74,10 @@
 	<!-- Fragmentos Randômicos -->
 	<div class="section divider">
 		<h2 id="servicestitle">Random Fragments</h2>
-		<a class="scroll" id="rand"></a>
+		<a class="scroll" id="random"></a>
 	</div>
 
-	<div class="content rand">
+	<div class="content random">
 
 
 			<% v = Fragment.getRandom 10 %>
@@ -88,7 +85,7 @@
 				<% begin %>
 					<form action="/create/">
 						<center><h3> <%=i.name%> </h3></center>
-						<center><textarea rows="5" class="form" name="source"><%=i.source.encode()%></textarea></center>
+						<center><textarea rows="5" class="form" name="source" readonly><%=i.source.encode()%></textarea></center>
 					</form>
 
 					<%="<form method=\"get\" action=\"/view/#{i.id}\">"%>

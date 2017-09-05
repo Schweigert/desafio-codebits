@@ -1,6 +1,20 @@
 
 <!doctype html>
 <html>
+
+<!-- Load CSS -->
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<!-- Load Icon Font -->
+<link href="../css/webfont.css" rel="stylesheet" type="text/css" />
+<!-- Load jQuery library -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Load jCarousel js -->
+<script type="text/javascript" src="../js/jquery.jcarousel.js"></script>
+<!-- Load MixItUup js -->
+<script type="text/javascript" src="../js/jquery.mixitup.js"></script>
+<!-- Load js -->
+<script type="text/javascript" src="../js/custom.js"></script>
+
   <head>
     <title>CodeBits</title>
   </head>
@@ -9,14 +23,26 @@
 
     <%f = Fragment.get id%>
     <% if f != nil %>
-    
-      <%= f.lang.to_s %><br><br><br>
 
+      <h1>Lang: <%= f.lang.to_s %></h1><br><br><br>
 
+      <form action="/create/">
+        <center><h3> <%=f.name%> </h3></center>
+        <center><textarea rows="25" cols="100" class="form" name="source" readonly><%=f.source.encode()%></textarea></center>
+      </form>
 
-      <% for i in f.source.split("\n") %>
-        <p><%= i %></p>
-      <% end %>
+      <%="<form method=\"get\" action=\"/view/#{f.id}\">"%>
+          <center><button type="submit">View</button><center>
+      </form>
+
+      <%="<form method=\"get\" action=\"/editor/#{f.id}\">"%>
+          <center><button type="submit">Edit</button><center>
+      </form>
+
+      <%="<form method=\"get\" action=\"/purge/#{f.id}\">"%>
+          <center><button type="submit">Purge</button><center>
+      </form>
+
     <% else %>
       <%= erb :e404 %>
     <% end %>
